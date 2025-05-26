@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress Developer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #666;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #667eea20, #764ba220);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .skills-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            background: #f8f9fa;
+            padding: 8px 15px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+
+        .contact-section {
+            text-align: center;
+            padding: 60px 0;
+            color: white;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your Name</h1>
+            <p>WordPress Developer | Union-Focused Web Solutions</p>
+        </header>
+
+        <section class="portfolio-grid">
+            <!-- Project 1: Union Website -->
+            <div class="project-card">
+                <div class="project-image">
+                    <span>Union Website Screenshot</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Community Organization Website</h3>
+                    <p class="project-description">
+                        Responsive WordPress site for a community organization featuring member portal, 
+                        event management, and campaign tracking functionality.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">WordPress</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Responsive Design</span>
+                        <span class="tech-tag">SEO</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-primary">Live Demo</a>
+                        <a href="#" class="btn btn-secondary">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Custom Plugin -->
+            <div class="project-card">
+                <div class="project-image">
+                    <span>Plugin Dashboard Screenshot</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Member Management Plugin</h3>
+                    <p class="project-description">
+                        Custom WordPress plugin for managing organization members, 
+                        including registration, profile management, and communication tools.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">WordPress Plugin API</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">jQuery</span>
+                        <span class="tech-tag">Database Design</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-primary">Documentation</a>
+                        <a href="#" class="btn btn-secondary">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Performance Optimization -->
+            <div class="project-card">
+                <div class="project-image">
+                    <span>Performance Metrics Dashboard</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Site Performance Optimization</h3>
+                    <p class="project-description">
+                        Optimized existing WordPress site, improving load times by 60% 
+                        and achieving 95+ Google PageSpeed scores.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Performance Optimization</span>
+                        <span class="tech-tag">Caching</span>
+                        <span class="tech-tag">Image Optimization</span>
+                        <span class="tech-tag">Database Optimization</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-primary">Case Study</a>
+                        <a href="#" class="btn btn-secondary">Before/After</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <h2 style="text-align: center; color: #2c3e50; margin-bottom: 20px;">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>WordPress Development</h3>
+                    <ul class="skill-list">
+                        <li>Custom Theme Development</li>
+                        <li>Plugin Development & Customization</li>
+                        <li>WordPress Hooks & Filters</li>
+                        <li>Custom Post Types & Fields</li>
+                        <li>WordPress REST API</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Frontend Technologies</h3>
+                    <ul class="skill-list">
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript & jQuery</li>
+                        <li>Responsive Design</li>
+                        <li>Bootstrap Framework</li>
+                        <li>CSS Preprocessors (SASS)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend & Tools</h3>
+                    <ul class="skill-list">
+                        <li>PHP & MySQL</li>
+                        <li>Git Version Control</li>
+                        <li>Database Management</li>
+                        <li>SEO Optimization</li>
+                        <li>Website Security</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h2>Let's Build Something Great Together</h2>
+            <div class="contact-info">
+                <p>Email: your.email@example.com</p>
+                <p>LinkedIn: linkedin.com/in/yourprofile</p>
+                <p>GitHub: github.com/yourusername</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Add smooth scrolling and interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading animation to project cards
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+
+            // Add hover effects to buttons
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.05)';
+                });
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
